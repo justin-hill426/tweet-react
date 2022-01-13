@@ -2,6 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
 import './index.css'
+import PropTypes from 'prop-types'
+
+function Comment({author, message, likes}) {
+  return (
+    <div>
+      <div className="author">{author}</div>
+      <div className='message'>{message}</div>
+      <div className='likes'>{likes > 0? likes:'No'} likes</div>
+    </div>
+  )
+}
+Comment.propTypes = {
+  message: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  likes: PropTypes.number,
+}
 const Time = ({time}) => {
   const timeString = moment(time).fromNow()
   return <span className="time">{timeString}</span>
