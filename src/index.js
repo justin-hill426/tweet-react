@@ -34,7 +34,10 @@ const LikeButton = ({count}) => (
     <i className='fa fa-heart'/>
     {count > 0 && <span className="like-count">{count}</span>}
   </span>
-) 
+)
+LikeButton.propTypes = {
+  count: PropTypes.number,
+} 
 const MoreOptionsButton = () => (
   <i className='fa fa-ellipsis-h more-options-button'/>
 )
@@ -89,6 +92,12 @@ function Author({author}) {
       <span className='handle'>@{author.handle}</span>
     </span>
   )
+}
+Author.propTypes = {
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    handle: PropTypes.string.isRequired,
+  }).isRequired,
 }
 function getRetweetCount(count) {
   if(count > 0) {
